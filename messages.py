@@ -1,8 +1,8 @@
 class Msg():
     def __init__(self,language):
-        if language == "EN" or "En" or "en":
+        if language == "EN":
             self.load_EN()
-        elif language == "PL" or "Pl" or "pl":
+        elif language == "PL":
             self.load_PL()
 
     def load_EN(self):
