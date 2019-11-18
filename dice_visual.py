@@ -1,11 +1,15 @@
 import pygal
 from generate_die import generate_die
+from messages import Msg
 
-die_num = input("Ile kości ")
+language = input("Select your language (EN/PL)\nWybierz język (EN/PL)")
+msg = Msg(language)
 
-dielist = generate_die(die_num)
+die_num = input(msg.msg_1)
 
-roll_num = input("Liczba rzutów ")
+dielist = generate_die(die_num, msg.msg_3)
+
+roll_num = input(msg.msg_2)
 roll_num = int(roll_num)
 
 result = 0
@@ -38,8 +42,8 @@ for p in range(min(results),(max(results))+1):
     xlabels.append(p)
 
 hist.x_labels = xlabels
-hist.x_title = "Wynik"
-hist.y_title = "Częstotliwość występowania wartości"
-hist.add('D6 + D6', frequencies)
+hist.x_title = msg.msg_4
+hist.y_title = msg.msg_5
+hist.add("", frequencies)
 
 hist.render_to_file('dice_visual.svg')
